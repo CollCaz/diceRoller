@@ -8,6 +8,11 @@ var dice_locked := false
 
 func _ready() -> void:
 	SettingsData.listen(self, "_on_settings_changed")
+	var interface = get_tree().get_nodes_in_group("Interface")[0]
+	
+	if interface:
+		interface.connect("add_die", self, "_on_Interface_add_die")
+	else: print_debug("Interface not found")
 
 
 func _on_Interface_add_die(type: String) -> void:
@@ -15,6 +20,7 @@ func _on_Interface_add_die(type: String) -> void:
 
 
 func add_die(type: String) -> void:
+	print_debug("Sss")
 	assert(dice_type_scenes.has(type), "invalid dice type: " + str(type))
 
 	var new_die: Die = (dice_type_scenes[type] as PackedScene).instance()

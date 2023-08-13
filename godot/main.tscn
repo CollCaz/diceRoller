@@ -57,7 +57,7 @@ Next up: dice syntax support!
 Have feedback? You can tell me here:
 [url]https://discord.gg/h7udm2T2GT[/url]"
 
-[node name="Interface" parent="." instance=ExtResource( 4 )]
+[node name="Interface" parent="." groups=["Interface"] instance=ExtResource( 4 )]
 
 [node name="Box" type="Spatial" parent="."]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0 )
@@ -167,13 +167,6 @@ current = true
 [node name="ZoomTicks" type="Timer" parent="Camera"]
 wait_time = 0.15
 
-[connection signal="add_die" from="Interface" to="DiceManager" method="_on_Interface_add_die"]
-[connection signal="area_resized" from="Interface" to="." method="_on_Interface_area_resized"]
-[connection signal="camera_zoomed" from="Interface" to="." method="_on_Interface_camera_zoomed"]
-[connection signal="clear_dice" from="Interface" to="DiceManager" method="_on_Interface_clear_dice"]
-[connection signal="lock_valid" from="Interface" to="DiceManager" method="_on_Interface_lock_valid"]
-[connection signal="roll_all" from="Interface" to="DiceManager" method="_on_Interface_roll_all"]
-[connection signal="roll_invalid" from="Interface" to="DiceManager" method="_on_Interface_roll_invalid"]
 [connection signal="timeout" from="Box/ResizeTicks" to="." method="_on_ResizeTicks_timeout"]
 [connection signal="timeout" from="DiceInteractions/RotateTicks" to="DiceInteractions" method="_on_RotateTicks_timeout"]
 [connection signal="timeout" from="Camera/ZoomTicks" to="." method="_on_ZoomTicks_timeout"]

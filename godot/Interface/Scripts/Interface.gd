@@ -40,7 +40,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func toast_message(message: String, delay: float = 0, lifetime: float = 0) -> void:
-	var toast: Toast = preload("res://Interface/Toast.tscn").instance()
+	var toast: Toast = load("res://Interface/Toast.tscn").instance()
 	toast.message = message
 	toast.delay = delay
 	toast.lifetime = lifetime
