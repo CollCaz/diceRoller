@@ -12,6 +12,10 @@ func _ready() -> void:
 	
 	if interface:
 		interface.connect("add_die", self, "_on_Interface_add_die")
+		interface.connect("clear_dice", self, "_on_Interface_clear_dice")
+		interface.connect("lock_valid", self, "_on_Interface_lock_valid")
+		interface.connect("roll_all", self, "_on_Interface_roll_all")
+		interface.connect("roll_invalid", self, "_on_Interface_roll_invalid")
 	else: print_debug("Interface not found")
 
 
